@@ -5,7 +5,7 @@
 
 print_sol([Head|Tail]) :-
     write(Head),
-    write('\n'),
+    write(', '),
     print_sol(Tail).
 
 valid_range([], _, _).
@@ -69,11 +69,11 @@ solve(Puzzle, Solution) :-
     length(Puzzle, L),
     N = floor(sqrt(L)),
     Solution = Puzzle,
-    valid_range(Solution, 1, N),
-    % carve(Solution, Rows, N, 'rows'),
-    % carve(Solution, Cols, N, 'cols'),
-    % carve(Solution, Blocks, N, 'blocks'),
+    carve(Solution, Rows, N, 'rows'),
+    carve(Solution, Cols, N. 'cols'),
+    carve(Solution, Blocks, N, 'blocks'),
     all_valid(Rows, N),
     all_valid(Cols, N),
     all_valid(Blocks, N),
+    valid_range(Solution, 1, N),
     print_sol(Solution).
